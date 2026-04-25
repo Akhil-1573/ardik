@@ -205,7 +205,7 @@ function ConsultationPopup({
                 <div className="mt-4 overflow-hidden rounded-2xl border border-border/70 bg-card/50">
                   <iframe
                     title="Ardik Staffing office location"
-                    src="https://www.google.com/maps?q=Bangalore,%20Karnataka,%20India&output=embed"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15546.12738928831!2d77.746!3d13.065444!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae10000f294687%3A0x287ccbf5d81dcb74!2sBudigere%20Cross%2C%20Bengaluru%2C%20Karnataka%20560049%2C%20India!5e0!3m2!1sen!2sus!4v1777147688876!5m2!1sen!2sus" //"https://www.google.com/maps?q=Bangalore,%20Karnataka,%20India&output=embed"
                     className="h-28 w-full border-0"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
