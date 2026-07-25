@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { AnimatePresence, motion } from "framer-motion"
-import { Check, Github, Linkedin, Mail, Twitter } from "lucide-react"
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Check, Github, Linkedin, Mail, Twitter } from "lucide-react";
 
 const FOOTER_LINKS = [
   {
@@ -25,25 +25,25 @@ const FOOTER_LINKS = [
   {
     title: "Contact",
     items: [
-      { label: "hr@ardikstaffing.com", href: "#" },
+      { label: "hr@Akhilstaffing.com", href: "#" },
       { label: "+91 9945033466", href: "#" },
       { label: "Bangalore, Karnataka, India", href: "#" },
       { label: "Send Enquiry", href: "#" },
     ],
   },
-]
+];
 
 export function SiteFooter() {
-  const [email, setEmail] = useState("")
-  const [submitted, setSubmitted] = useState(false)
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
 
   const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!email) return
-    setSubmitted(true)
-    setEmail("")
-    setTimeout(() => setSubmitted(false), 3200)
-  }
+    e.preventDefault();
+    if (!email) return;
+    setSubmitted(true);
+    setEmail("");
+    setTimeout(() => setSubmitted(false), 3200);
+  };
 
   return (
     <footer className="relative mt-10 border-t z-10 border-border/60">
@@ -55,7 +55,11 @@ export function SiteFooter() {
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand + newsletter */}
           <div className="lg:col-span-5">
-            <a href="#main" className="flex items-center gap-2" aria-label="Ardik Staffing home">
+            <a
+              href="#main"
+              className="flex items-center gap-2"
+              aria-label="Akhil Staffing home"
+            >
               <span
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-display font-bold tracking-tight"
                 aria-hidden
@@ -63,14 +67,18 @@ export function SiteFooter() {
                 A
               </span>
               <span className="font-display text-lg font-semibold tracking-tight">
-                Ardik<span className="text-primary"> Staffing</span>
+                Akhil<span className="text-primary"> Staffing</span>
               </span>
             </a>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-muted-foreground">
-              Connecting talent with opportunity. Your trusted workforce solutions partner across India.
+              Connecting talent with opportunity. Your trusted workforce
+              solutions partner across India.
             </p>
 
-            <form onSubmit={onSubmit} className="mt-6 flex max-w-md items-center gap-2">
+            <form
+              onSubmit={onSubmit}
+              className="mt-6 flex max-w-md items-center gap-2"
+            >
               <label htmlFor="newsletter" className="sr-only">
                 Email address
               </label>
@@ -141,7 +149,9 @@ export function SiteFooter() {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7">
             {FOOTER_LINKS.map((col) => (
               <div key={col.title}>
-                <h4 className="font-display text-sm font-semibold text-foreground">{col.title}</h4>
+                <h4 className="font-display text-sm font-semibold text-foreground">
+                  {col.title}
+                </h4>
                 <ul className="mt-4 space-y-3">
                   {col.items.map((item) => (
                     <li key={item.label}>
@@ -164,7 +174,10 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-12 flex flex-col items-start justify-between gap-4 border-t border-border/60 pt-8 text-sm text-muted-foreground sm:flex-row sm:items-center">
-          <p>© {new Date().getFullYear()} Ardik Staffing Pvt Ltd. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} Akhil Staffing Pvt Ltd. All rights
+            reserved.
+          </p>
           <div className="flex items-center gap-6">
             <a href="#" className="hover:text-foreground">
               Privacy
@@ -179,5 +192,5 @@ export function SiteFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

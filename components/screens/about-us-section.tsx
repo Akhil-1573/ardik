@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { Award, Headphones, MapPin, Timer } from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+import { motion } from "framer-motion";
+import { Award, Headphones, MapPin, Timer } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 type Advantage = {
-  icon: LucideIcon
-  stat: string
-  title: string
-  description: string
-}
+  icon: LucideIcon;
+  stat: string;
+  title: string;
+  description: string;
+};
 
 const ADVANTAGES: Advantage[] = [
   {
@@ -40,7 +40,7 @@ const ADVANTAGES: Advantage[] = [
     description:
       "A single point of contact from brief to onboarding — and beyond. Real humans, real accountability.",
   },
-]
+];
 
 export function AdvantagesSection() {
   return (
@@ -48,13 +48,14 @@ export function AdvantagesSection() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-2xl text-center">
           <span className="inline-flex items-center rounded-full border border-border/70 bg-card/40 px-3 py-1 text-xs font-medium text-primary backdrop-blur">
-            Why Choose Ardik
+            Why Choose Akhil
           </span>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-5xl text-balance">
             Built for speed. Engineered for fit.
           </h2>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground text-pretty">
-            We go beyond conventional staffing to deliver strategic talent partnerships that drive real business results.
+            We go beyond conventional staffing to deliver strategic talent
+            partnerships that drive real business results.
           </p>
         </div>
 
@@ -65,19 +66,34 @@ export function AdvantagesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-function AdvantageTile({ advantage, index }: { advantage: Advantage; index: number }) {
-  const Icon = advantage.icon
+function AdvantageTile({
+  advantage,
+  index,
+}: {
+  advantage: Advantage;
+  index: number;
+}) {
+  const Icon = advantage.icon;
   // asymmetric offset for depth
-  const offsets = ["lg:translate-y-0", "lg:translate-y-6", "lg:-translate-y-6", "lg:translate-y-0"]
+  const offsets = [
+    "lg:translate-y-0",
+    "lg:translate-y-6",
+    "lg:-translate-y-6",
+    "lg:translate-y-0",
+  ];
   return (
     <motion.div
       initial={{ opacity: 0, y: 0 }}
       whileInView={{ opacity: 1, y: 28 }}
       viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.23, 1, 0.32, 1] }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.23, 1, 0.32, 1],
+      }}
       className={`group relative grid overflow-hidden rounded-2xl border border-border/70 bg-card/60 p-6 backdrop-blur-xl transition-all hover:-translate-y-1 hover:border-primary/50 hover:shadow-[0_24px_60px_-20px_oklch(0.78_0.15_180/0.35)] sm:p-8 ${offsets[index % offsets.length]} `} //${offsets[index % offsets.length]}
     >
       <div
@@ -97,12 +113,14 @@ function AdvantageTile({ advantage, index }: { advantage: Advantage; index: numb
           <div className="font-display text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             {advantage.stat}
           </div>
-          <div className="mt-0.5 text-sm font-medium text-primary">{advantage.title}</div>
+          <div className="mt-0.5 text-sm font-medium text-primary">
+            {advantage.title}
+          </div>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
             {advantage.description}
           </p>
         </div>
       </div>
     </motion.div>
-  )
+  );
 }

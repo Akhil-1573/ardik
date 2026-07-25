@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { Menu, X } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "#services", label: "Services" },
   { href: "#why-us", label: "Why Us" },
   { href: "#stories", label: "Stories" },
   { href: "#jobs", label: "Opportunities" },
-]
+];
 
 export function SiteHeader() {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
@@ -36,7 +36,11 @@ export function SiteHeader() {
       )}
     >
       <div className="flex h-16 w-full items-center justify-between px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-20">
-        <a href="#main" className="group flex items-center gap-2" aria-label="Ardik Staffing home">
+        <a
+          href="#main"
+          className="group flex items-center gap-2"
+          aria-label="Akhil Staffing home"
+        >
           <span
             className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary text-primary-foreground font-display font-bold tracking-tight"
             aria-hidden
@@ -44,7 +48,7 @@ export function SiteHeader() {
             A
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
-            Ardik<span className="text-primary"> Staffing</span>
+            Akhil<span className="text-primary"> Staffing</span>
           </span>
         </a>
 
@@ -66,7 +70,10 @@ export function SiteHeader() {
             className="group inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-[0_8px_24px_-8px_oklch(0.78_0.15_180/0.6)] transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_32px_-8px_oklch(0.78_0.15_180/0.8)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
           >
             Contact us
-            <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+            <span
+              aria-hidden
+              className="transition-transform group-hover:translate-x-0.5"
+            >
               {"→"}
             </span>
           </a>
@@ -85,7 +92,10 @@ export function SiteHeader() {
 
       {open ? (
         <div className="border-t border-border/60 bg-background/95 backdrop-blur-xl md:hidden">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4" aria-label="Mobile">
+          <nav
+            className="mx-auto flex max-w-7xl flex-col gap-1 px-4 py-4"
+            aria-label="Mobile"
+          >
             {NAV_LINKS.map((l) => (
               <a
                 key={l.href}
@@ -107,5 +117,5 @@ export function SiteHeader() {
         </div>
       ) : null}
     </motion.header>
-  )
+  );
 }

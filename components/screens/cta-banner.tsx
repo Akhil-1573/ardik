@@ -1,15 +1,25 @@
-"use client"
+"use client";
 
-import { AnimatePresence, motion } from "framer-motion"
-import { createPortal } from "react-dom"
-import { useState } from "react"
-import { ArrowRight, Briefcase, Clock, Handshake, Mail, MapPin, Phone, Send, TrendingUp, X } from "lucide-react"
+import { AnimatePresence, motion } from "framer-motion";
+import { createPortal } from "react-dom";
+import { useState } from "react";
+import {
+  ArrowRight,
+  Briefcase,
+  Clock,
+  Handshake,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  TrendingUp,
+  X,
+} from "lucide-react";
 
 export function CtaBanner() {
-  const [isConsultationOpen, setIsConsultationOpen] = useState(false)
+  const [isConsultationOpen, setIsConsultationOpen] = useState(false);
   return (
     <section id="cta" className="relative overflow-hidden py-24 sm:py-32">
-
       {/* Floating decorative icons */}
       <FloatingIcon
         className="left-[8%] top-[18%] hidden lg:block"
@@ -57,7 +67,8 @@ export function CtaBanner() {
             transition={{ duration: 0.7, ease: [0.23, 1, 0.32, 1] }}
             className="relative mt-5 font-display text-3xl font-semibold tracking-tight sm:text-5xl lg:text-6xl text-balance"
           >
-            Ready to Build Your <span className="text-primary">Dream Team?</span>
+            Ready to Build Your{" "}
+            <span className="text-primary">Dream Team?</span>
           </motion.h2>
 
           <motion.p
@@ -67,7 +78,8 @@ export function CtaBanner() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="relative mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg"
           >
-            Let our experts find the perfect talent for your organization. Get started today.
+            Let our experts find the perfect talent for your organization. Get
+            started today.
           </motion.p>
 
           <motion.div
@@ -78,7 +90,7 @@ export function CtaBanner() {
             className="relative mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row"
           >
             <button
-              type='button'
+              type="button"
               onClick={() => setIsConsultationOpen(true)}
               className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-foreground shadow-[0_18px_40px_-12px_oklch(0.82_0.14_75/0.6)] transition-all hover:-translate-y-0.5 hover:shadow-[0_22px_48px_-12px_oklch(0.82_0.14_75/0.8)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
@@ -88,7 +100,10 @@ export function CtaBanner() {
                 className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-white/30 opacity-0 transition-all duration-700 group-hover:left-full group-hover:opacity-100"
               />
               <span className="relative">Get Free Consultation</span>
-              <ArrowRight className="relative h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+              <ArrowRight
+                className="relative h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                aria-hidden
+              />
             </button>
             <a
               href="#jobs"
@@ -105,22 +120,22 @@ export function CtaBanner() {
           </motion.div>
         </div>
       </div>
-      <ConsultationPopup 
+      <ConsultationPopup
         isOpen={isConsultationOpen}
         onClose={() => setIsConsultationOpen(false)}
       />
     </section>
-  )
+  );
 }
 
 function ConsultationPopup({
   isOpen,
   onClose,
 }: {
-  isOpen: boolean
-  onClose: () => void
+  isOpen: boolean;
+  onClose: () => void;
 }) {
-  if (typeof document === "undefined") return null
+  if (typeof document === "undefined") return null;
   return createPortal(
     <AnimatePresence>
       {isOpen && (
@@ -173,14 +188,15 @@ function ConsultationPopup({
                 </h3>
 
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Reach out to us through any of the channels below or fill out the form.
+                  Reach out to us through any of the channels below or fill out
+                  the form.
                 </p>
 
                 <div className="mt-5 space-y-3">
                   <ContactInfoItem
                     icon={Mail}
                     label="Email"
-                    value="hr@ardikstaffing.com"
+                    value="hr@Akhilstaffing.com"
                   />
 
                   <ContactInfoItem
@@ -204,7 +220,7 @@ function ConsultationPopup({
 
                 <div className="mt-4 overflow-hidden rounded-2xl border border-border/70 bg-card/50">
                   <iframe
-                    title="Ardik Staffing office location"
+                    title="Akhil Staffing office location"
                     src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15546.12738928831!2d77.746!3d13.065444!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae10000f294687%3A0x287ccbf5d81dcb74!2sBudigere%20Cross%2C%20Bengaluru%2C%20Karnataka%20560049%2C%20India!5e0!3m2!1sen!2sus!4v1777147688876!5m2!1sen!2sus" //"https://www.google.com/maps?q=Bangalore,%20Karnataka,%20India&output=embed"
                     className="h-28 w-full border-0"
                     loading="lazy"
@@ -230,7 +246,8 @@ function ConsultationPopup({
                 </h3>
 
                 <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Fill out the form and our team will get back to you within 24 hours.
+                  Fill out the form and our team will get back to you within 24
+                  hours.
                 </p>
 
                 <div className="mt-5 grid gap-3 md:grid-cols-2">
@@ -283,7 +300,10 @@ function ConsultationPopup({
                   className="group mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground shadow-[0_12px_28px_-16px_oklch(0.82_0.14_75/0.48)] transition-all hover:-translate-y-0.5 hover:shadow-[0_14px_34px_-18px_oklch(0.82_0.14_75/0.3)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                 >
                   <span>Send Message</span>
-                  <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  <Send
+                    className="h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                    aria-hidden
+                  />
                 </button>
               </form>
             </div>
@@ -292,7 +312,7 @@ function ConsultationPopup({
       )}
     </AnimatePresence>,
     document.body,
-  )
+  );
 }
 
 function ContactInfoItem({
@@ -300,9 +320,9 @@ function ContactInfoItem({
   label,
   value,
 }: {
-  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
-  label: string
-  value: string
+  icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  label: string;
+  value: string;
 }) {
   return (
     <div className="group flex items-center gap-3 rounded-2xl border border-border/70 bg-card/50 p-3 transition hover:border-primary/50 hover:bg-card/70">
@@ -319,7 +339,7 @@ function ContactInfoItem({
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function FormField({
@@ -329,11 +349,11 @@ function FormField({
   type = "text",
   required = false,
 }: {
-  label: string
-  name: string
-  placeholder: string
-  type?: string
-  required?: boolean
+  label: string;
+  name: string;
+  placeholder: string;
+  type?: string;
+  required?: boolean;
 }) {
   return (
     <div>
@@ -349,7 +369,7 @@ function FormField({
         className="mt-2 w-full rounded-2xl border border-border/70 bg-card/60 px-4 py-3 text-sm text-foreground outline-none transition placeholder:text-muted-foreground/70 focus:border-primary/70 focus:ring-2 focus:ring-primary/20"
       />
     </div>
-  )
+  );
 }
 
 function FloatingIcon({
@@ -358,10 +378,10 @@ function FloatingIcon({
   Icon,
   accent = false,
 }: {
-  className?: string
-  delay?: number
-  Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>
-  accent?: boolean
+  className?: string;
+  delay?: number;
+  Icon: React.ComponentType<{ className?: string; "aria-hidden"?: boolean }>;
+  accent?: boolean;
 }) {
   return (
     <motion.div
@@ -376,5 +396,5 @@ function FloatingIcon({
         aria-hidden
       />
     </motion.div>
-  )
+  );
 }

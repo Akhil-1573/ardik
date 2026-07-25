@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect, useState } from "react"
-import { motion } from "framer-motion"
-import { ChevronLeft, ChevronRight, Quote } from "lucide-react"
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 type Testimonial = {
-  quote: string
-  name: string
-  title: string
-  initials: string
-}
+  quote: string;
+  name: string;
+  title: string;
+  initials: string;
+};
 
 const TESTIMONIALS: Testimonial[] = [
   {
@@ -21,41 +21,43 @@ const TESTIMONIALS: Testimonial[] = [
   },
   {
     quote:
-      "Ardik Staffing transformed our hiring process. They delivered 50+ qualified engineers within 3 weeks — far beyond our expectations.",
+      "Akhil Staffing transformed our hiring process. They delivered 50+ qualified engineers within 3 weeks — far beyond our expectations.",
     name: "Rajesh Kumar",
     title: "HR Director, TechCorp India",
     initials: "RK",
   },
   {
     quote:
-      "We've been working with Ardik for 3 years now. Consistent quality, fast turnaround, and they truly understand our business needs.",
+      "We've been working with Akhil for 3 years now. Consistent quality, fast turnaround, and they truly understand our business needs.",
     name: "Amit Patel",
     title: "Operations Head, LogiTech",
     initials: "AP",
   },
-]
+];
 
 export function TestimonialsSection() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const [paused, setPaused] = useState(false)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
-    if (paused) return
+    if (paused) return;
 
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % TESTIMONIALS.length)
-    }, 6000)
+      setActiveIndex((current) => (current + 1) % TESTIMONIALS.length);
+    }, 6000);
 
-    return () => clearInterval(interval)
-  }, [paused])
+    return () => clearInterval(interval);
+  }, [paused]);
 
   const goNext = () => {
-    setActiveIndex((current) => (current + 1) % TESTIMONIALS.length)
-  }
+    setActiveIndex((current) => (current + 1) % TESTIMONIALS.length);
+  };
 
   const goPrev = () => {
-    setActiveIndex((current) => (current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length)
-  }
+    setActiveIndex(
+      (current) => (current - 1 + TESTIMONIALS.length) % TESTIMONIALS.length,
+    );
+  };
 
   return (
     <section
@@ -71,14 +73,18 @@ export function TestimonialsSection() {
           </span>
 
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight sm:text-5xl text-balance">
-            Trusted by hundreds of companies across India for their critical workforce needs.
+            Trusted by hundreds of companies across India for their critical
+            workforce needs.
           </h2>
         </div>
 
         <div className="relative mx-auto mt-10 h-[360px] w-full overflow-visible sm:mt-12 sm:h-[340px] lg:h-[350px]">
           <div className="absolute left-1/2 top-0 h-full w-full max-w-7xl -translate-x-1/2">
             {TESTIMONIALS.map((testimonial, testimonialIndex) => {
-              const position = getCarouselPosition(testimonialIndex, activeIndex)
+              const position = getCarouselPosition(
+                testimonialIndex,
+                activeIndex,
+              );
 
               return (
                 <CarouselCard
@@ -86,11 +92,11 @@ export function TestimonialsSection() {
                   testimonial={testimonial}
                   position={position}
                   onClick={() => {
-                    if (position === "left") goPrev()
-                    if (position === "right") goNext()
+                    if (position === "left") goPrev();
+                    if (position === "right") goNext();
                   }}
                 />
-              )
+              );
             })}
           </div>
         </div>
@@ -134,19 +140,19 @@ export function TestimonialsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
 function getCarouselPosition(testimonialIndex: number, activeIndex: number) {
-  const total = TESTIMONIALS.length
-  let offset = testimonialIndex - activeIndex
+  const total = TESTIMONIALS.length;
+  let offset = testimonialIndex - activeIndex;
 
-  if (offset > total / 2) offset -= total
-  if (offset < -total / 2) offset += total
+  if (offset > total / 2) offset -= total;
+  if (offset < -total / 2) offset += total;
 
-  if (offset === 0) return "center"
-  if (offset === -1) return "left"
-  return "right"
+  if (offset === 0) return "center";
+  if (offset === -1) return "left";
+  return "right";
 }
 
 function CarouselCard({
@@ -154,11 +160,11 @@ function CarouselCard({
   position,
   onClick,
 }: {
-  testimonial: Testimonial
-  position: "left" | "center" | "right"
-  onClick: () => void
+  testimonial: Testimonial;
+  position: "left" | "center" | "right";
+  onClick: () => void;
 }) {
-  const isCenter = position === "center"
+  const isCenter = position === "center";
 
   const cardPosition = {
     left: {
@@ -168,7 +174,6 @@ function CarouselCard({
       opacity: 0.89,
       rotateY: 10,
       zIndex: 10,
-      
     },
     center: {
       x: "-50%",
@@ -177,7 +182,6 @@ function CarouselCard({
       opacity: 1,
       rotateY: 0,
       zIndex: 30,
-      
     },
     right: {
       x: "20%",
@@ -186,9 +190,8 @@ function CarouselCard({
       opacity: 0.89,
       rotateY: -10,
       zIndex: 10,
-      
     },
-  }
+  };
 
   return (
     <motion.article
@@ -226,7 +229,9 @@ function CarouselCard({
         <div className="mt-4 flex items-center gap-3 sm:mt-5">
           <span
             className={`grid shrink-0 place-items-center rounded-full bg-primary/15 font-display font-semibold text-primary ring-2 ring-primary/40 ${
-              isCenter ? "h-9 w-9 text-[11px] sm:h-10 sm:w-10 sm:text-xs" : "h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-[11px]"
+              isCenter
+                ? "h-9 w-9 text-[11px] sm:h-10 sm:w-10 sm:text-xs"
+                : "h-8 w-8 text-[10px] sm:h-9 sm:w-9 sm:text-[11px]"
             }`}
           >
             {testimonial.initials}
@@ -243,5 +248,5 @@ function CarouselCard({
         </div>
       </div>
     </motion.article>
-  )
+  );
 }

@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { ArrowRight, Sparkles, Trophy, Zap } from "lucide-react"
-import { ParticleField } from "./particle-field"
-import { StatCounter } from "./stat-counter"
+import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Trophy, Zap } from "lucide-react";
+import { ParticleField } from "./particle-field";
+import { StatCounter } from "./stat-counter";
 
-const HEADLINE = "Opportunity Starts Here"
+const HEADLINE = "Opportunity Starts Here";
 
 function SplitHeadline({ text }: { text: string }) {
-  const words = text.split(" ")
+  const words = text.split(" ");
   return (
     <h1 className="font-display text-4xl font-semibold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-balance">
       {words.map((word, wi) => (
@@ -28,11 +28,13 @@ function SplitHeadline({ text }: { text: string }) {
               {char}
             </motion.span>
           ))}
-          {wi < words.length - 1 ? <span className="inline-block w-[0.25em]">&nbsp;</span> : null}
+          {wi < words.length - 1 ? (
+            <span className="inline-block w-[0.25em]">&nbsp;</span>
+          ) : null}
         </span>
       ))}
     </h1>
-  )
+  );
 }
 
 export function AnimatedHero() {
@@ -43,7 +45,10 @@ export function AnimatedHero() {
     >
       {/* Background layers */}
       <div className="absolute inset-0 -z-10 bg-mesh" aria-hidden />
-      <div className="absolute inset-0 -z-10 grid-pattern mask-radial-fade opacity-60" aria-hidden />
+      <div
+        className="absolute inset-0 -z-10 grid-pattern mask-radial-fade opacity-60"
+        aria-hidden
+      />
       <div className="absolute inset-0 -z-10">
         <ParticleField />
       </div>
@@ -51,7 +56,7 @@ export function AnimatedHero() {
       <div className="mx-auto w-full max-w-9xl px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-20">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-12">
           <div className="lg:col-span-7">
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -59,7 +64,7 @@ export function AnimatedHero() {
             >
               <Sparkles className="h-3.5 w-3.5 text-primary" aria-hidden />
               <span className="text-foreground/90">{"🚀 India's Trusted Staffing Partner"}</span>
-            </motion.div>
+            </motion.div> */}
 
             <div className="mt-6">
               <SplitHeadline text={HEADLINE} />
@@ -68,12 +73,16 @@ export function AnimatedHero() {
             <motion.p
               initial={{ opacity: 0, filter: "blur(8px)", y: 10 }}
               animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: [0.23, 1, 0.32, 1] }}
+              transition={{
+                duration: 0.9,
+                delay: 0.4,
+                ease: [0.23, 1, 0.32, 1],
+              }}
               className="mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg"
             >
-              Connecting India&apos;s best talent with forward-thinking organizations. We deliver
-              end-to-end workforce solutions — from recruitment to talent strategy — with speed,
-              precision, and care.
+              Connecting India&apos;s best talent with forward-thinking
+              organizations. We deliver end-to-end workforce solutions — from
+              recruitment to talent strategy — with speed, precision, and care.
             </motion.p>
 
             <motion.div
@@ -99,16 +108,16 @@ export function AnimatedHero() {
                 Contact Us
               </a>
 
-              <div className="ml-1 hidden items-center gap-3 sm:flex">
+              {/* <div className="ml-1 hidden items-center gap-3 sm:flex">
                 {/* <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/30 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                   <Zap className="h-3.5 w-3.5 text-primary" aria-hidden />
                   {"✅ 48hr Delivery"}
-                </span> */}
+                </span>
                 <span className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-card/30 px-3 py-1 text-xs text-muted-foreground backdrop-blur">
                   <Trophy className="h-3.5 w-3.5 text-accent" aria-hidden />
                   {"🏆 Top Staffing Co."}
                 </span>
-              </div>
+              </div> */}
             </motion.div>
           </div>
 
@@ -144,7 +153,7 @@ export function AnimatedHero() {
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
 
 function HeroOrbital() {
@@ -170,7 +179,11 @@ function HeroOrbital() {
           className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2"
           style={{ rotate: deg }}
           animate={{ rotate: deg + 360 }}
-          transition={{ duration: 24 + i * 6, ease: "linear", repeat: Infinity }}
+          transition={{
+            duration: 24 + i * 6,
+            ease: "linear",
+            repeat: Infinity,
+          }}
         >
           <div
             className={`absolute -left-1.5 top-1/2 h-3 w-3 rounded-full ${
@@ -193,9 +206,14 @@ function HeroOrbital() {
           strokeDasharray="2 3"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
-          transition={{ duration: 3, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "reverse",
+          }}
         />
       </svg>
     </div>
-  )
+  );
 }

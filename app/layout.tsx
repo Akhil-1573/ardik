@@ -1,22 +1,22 @@
-import type { Metadata, Viewport } from "next"
-import { Inter, Space_Grotesk } from "next/font/google"
-import { Analytics } from "@vercel/analytics/next"
-import "./globals.css"
+import type { Metadata, Viewport } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-})
+});
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-display",
   display: "swap",
-})
+});
 
 export const metadata: Metadata = {
-  title: "Ardik Staffing — India's Trusted Staffing Partner",
+  title: "Akhil Staffing — India's Trusted Staffing Partner",
   description:
     "Connecting India's best talent with forward-thinking organizations. End-to-end workforce solutions — recruitment, talent advisory, and workforce management — delivered with speed, precision, and care.",
   generator: "v0.app",
@@ -29,26 +29,30 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
   openGraph: {
-    title: "Ardik Staffing — India's Trusted Staffing Partner",
+    title: "Akhil Staffing — India's Trusted Staffing Partner",
     description:
       "End-to-end workforce solutions — recruitment, talent advisory, workforce management.",
     type: "website",
   },
-}
+};
 
 export const viewport: Viewport = {
   themeColor: "#0A1628",
   width: "device-width",
   initialScale: 1,
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} bg-background`} suppressHydrationWarning={true}>
+    <html
+      lang="en"
+      className={`${inter.variable} ${spaceGrotesk.variable} bg-background`}
+      suppressHydrationWarning={true}
+    >
       <body className="font-sans antialiased bg-background text-foreground">
         <a
           href="#main"
@@ -60,5 +64,5 @@ export default function RootLayout({
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
     </html>
-  )
+  );
 }

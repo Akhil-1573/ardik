@@ -1,10 +1,10 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  /* Ardik Staffing - Strategic Momentum theme */
+  /* Akhil Staffing - Strategic Momentum theme */
   --background: oklch(0.16 0.03 250); /* Deep navy #0A1628 */
   --foreground: oklch(0.98 0 0);
 
@@ -108,7 +108,7 @@
   }
 }
 
-/* Ardik utility classes */
+/* Akhil utility classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -121,14 +121,30 @@
   }
   .bg-mesh {
     background-image:
-      radial-gradient(at 20% 10%, oklch(0.78 0.15 180 / 0.12) 0px, transparent 50%),
-      radial-gradient(at 80% 20%, oklch(0.82 0.14 75 / 0.08) 0px, transparent 50%),
-      radial-gradient(at 60% 90%, oklch(0.78 0.15 180 / 0.1) 0px, transparent 55%);
+      radial-gradient(
+        at 20% 10%,
+        oklch(0.78 0.15 180 / 0.12) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 80% 20%,
+        oklch(0.82 0.14 75 / 0.08) 0px,
+        transparent 50%
+      ),
+      radial-gradient(
+        at 60% 90%,
+        oklch(0.78 0.15 180 / 0.1) 0px,
+        transparent 55%
+      );
   }
   .grid-pattern {
     background-image:
       linear-gradient(oklch(0.78 0.15 180 / 0.06) 1px, transparent 1px),
-      linear-gradient(to right, oklch(0.78 0.15 180 / 0.06) 1px, transparent 1px);
+      linear-gradient(
+        to right,
+        oklch(0.78 0.15 180 / 0.06) 1px,
+        transparent 1px
+      );
     background-size: 56px 56px;
   }
 }
