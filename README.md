@@ -20,14 +20,6 @@ Designed as a **demo project** to showcase frontend creativity, motion effects, 
 
 ---
 
-## 🛠️ Tech Stack
-
-- JavaScript
-- Responsive Design
-- Animation Libraries
-
----
-
 ## 💡 Purpose of This Project
 
 This is a **frontend demo project** focused on:
